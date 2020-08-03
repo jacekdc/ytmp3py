@@ -1,4 +1,3 @@
-# ytmp3py
 
 simple youtube mp3 download script
 
