@@ -13,15 +13,12 @@ vf = ['mp4','mkv','webm']
 def download(line):
     try:
         os.system('youtube-dl "{}" --no-check-certificate'.format(line))
-        convert(vf)
-        remove(vf)
     except:
         print("Could not download that video")
             
             
 def look(name, mode):
-    filepath = name
-    with open(filepath) as fp:
+    with open(name) as fp:
         line = fp.readline()
         cnt = 1
         while line:
@@ -32,6 +29,8 @@ def look(name, mode):
                 search(line.strip())
             line = fp.readline()
             cnt += 1
+        convert(vf)
+        remove(vf)
             
 def convert(fmt):
     for x in range(len(fmt)):
@@ -74,5 +73,3 @@ def start():
 if fo == "0":
     start()
     fo = "1"
-    
-print("* Finished *")
